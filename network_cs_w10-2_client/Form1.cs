@@ -49,5 +49,14 @@ namespace network_cs_w10_2_client
             byte[] B = Encoding.Default.GetBytes(Str);
             T.Send(B, 0, B.Length, SocketFlags.None);
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(button1.Enabled == false)
+            {
+                Send("9" + User);
+                T.Close();
+            }
+        }
     }
 }
